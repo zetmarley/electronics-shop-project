@@ -41,7 +41,7 @@ class Item:
     def instantiate_from_csv(cls):
         """Инициализируем содержимое items.csv"""
         count = 1
-        with open("src/items.csv", newline='') as csvfile:
+        with open("src/items.csv", encoding='utf-8', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 Item.all.append(Item(row["name"], row["price"], row["quantity"]))
