@@ -19,6 +19,11 @@ class Item:
         self.price = price
         self.quantity = quantity
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.name}"
     @property
     def name(self):
         """Геттер name"""
@@ -36,7 +41,7 @@ class Item:
     def instantiate_from_csv(cls):
         """Инициализируем содержимое items.csv"""
         count = 1
-        with open("src/items.csv", newline='') as csvfile:
+        with open("src/items.csv", encoding='utf-8', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 Item.all.append(Item(row["name"], row["price"], row["quantity"]))
