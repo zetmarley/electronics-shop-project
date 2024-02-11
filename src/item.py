@@ -1,6 +1,7 @@
 import csv
+from abc import ABC
 
-class Item:
+class Item(ABC):
     """
     Класс для представления товара в магазине.
     """
